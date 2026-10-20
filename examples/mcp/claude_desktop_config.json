@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "keyflight": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://keyflight.io/mcp",
+        "--header",
+        "Authorization: Bearer kfp_…"
+      ]
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "pnrCode": "PQ7XNR",
+  "passengers": [
+    {
+      "name": "JOHNSON JOHN"
+    },
+    {
+      "name": "JOHNSON JANE"
+    }
+  ],
+  "segments": [
+    {
+      "airlineCode": "BA",
+      "airlineName": "British Airways",
+      "flightNumber": "178",
+      "bookingClass": "Y",
+      "cabin": "Economy",
+      "status": "HK2",
+      "statusText": "Confirmed",
+      "logoUrl": "https://keyflight.io/img/airlines/BA.png",
+      "duration": 490,
+      "distance": {
+        "km": 5540,
+        "miles": 3442
+      },
+      "aircraftCode": null,
+      "aircraft": null,
+      "operatedBy": null,
+      "airlineLocator": {
+        "airlineCode": "BA",
+        "code": "PQ7XNR"
+      },
+      "departure": {
+        "code": "LHR",
+        "city": "London",
+        "airport": "London Heathrow Airport",
+        "terminal": null,
+        "date": "2026-05-03",
+        "time": "08:55"
+      },
+      "arrival": {
+        "code": "JFK",
+        "city": "New York",
+        "airport": "John F Kennedy International Airport",
+        "terminal": null,
+        "date": "2026-05-03",
+        "time": "12:05"
+      }
+    },
+    {
+      "airlineCode": "BA",
+      "airlineName": "British Airways",
+      "flightNumber": "117",
+      "bookingClass": "Y",
+      "cabin": "Economy",
+      "status": "HK2",
+      "statusText": "Confirmed",
+      "logoUrl": "https://keyflight.io/img/airlines/BA.png",
+      "duration": 430,
+      "distance": {
+        "km": 5540,
+        "miles": 3442
+      },
+      "aircraftCode": null,
+      "aircraft": null,
+      "operatedBy": null,
+      "airlineLocator": {
+        "airlineCode": "BA",
+        "code": "PQ7XNR"
+      },
+      "departure": {
+        "code": "JFK",
+        "city": "New York",
+        "airport": "John F Kennedy International Airport",
+        "terminal": null,
+        "date": "2026-05-10",
+        "time": "18:30"
+      },
+      "arrival": {
+        "code": "LHR",
+        "city": "London",
+        "airport": "London Heathrow Airport",
+        "terminal": null,
+        "date": "2026-05-11",
+        "time": "06:40"
+      }
+    }
+  ],
+  "itinerary": {
+    "view": "table",
+    "text": "BA 178 · British Airways · 8h 10m\n3 May 2026 08:55  London (LHR), London Heathrow Airport\n3 May 2026 12:05  New York (JFK), John F Kennedy International Airport\n\nBA 117 · British Airways · 7h 10m\n10 May 2026 18:30  New York (JFK), John F Kennedy International Airport\n11 May 2026 06:40  London (LHR), London Heathrow Airport",
+    "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size…"
+  }
+}

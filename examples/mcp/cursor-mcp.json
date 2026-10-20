@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "keyflight": {
+      "url": "https://keyflight.io/mcp",
+      "headers": {
+        "Authorization": "Bearer kfp_…"
+      }
+    }
+  }
+}
