@@ -79,6 +79,28 @@ Claude Desktop connects through [`mcp-remote`](https://www.npmjs.com/package/mcp
 }
 ```
 
+### Cline (`cline_mcp_settings.json`)
+
+In Cline open **MCP Servers → Configure MCP Servers** and add:
+
+```json
+{
+  "mcpServers": {
+    "keyflight": {
+      "type": "streamableHttp",
+      "url": "https://keyflight.io/mcp",
+      "headers": {
+        "Authorization": "Bearer kfp_…"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+Step-by-step notes for AI agents that install the server: [`llms-install.md`](llms-install.md).
+
 Then ask, for example: *"Decode this PNR and make a PRO ticket with a price of 850 EUR"* and paste the booking.
 
 Other clients: any MCP client that supports Streamable HTTP and custom headers. Requests sent from web pages of other sites (with a browser `Origin` header) are refused with `403 origin_not_allowed`, so connect from a desktop app, a CLI or your server. Without a client, see [`examples/mcp/raw-jsonrpc.sh`](examples/mcp/raw-jsonrpc.sh): one JSON-RPC message per `POST`, JSON back.

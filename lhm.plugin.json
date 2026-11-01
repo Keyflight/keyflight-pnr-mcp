@@ -1,0 +1,138 @@
+{
+  "identifier": "keyflight-pnr",
+  "name": "KeyFlight PNR Converter",
+  "version": "1.0.0",
+  "author": "KeyFlight",
+  "authorUrl": "https://keyflight.io",
+  "description": "Decode Amadeus, Sabre, Galileo and Worldspan PNRs into a readable itinerary and JSON, or make a PRO ticket PDF. Hosted remote server for travel agents; needs a KeyFlight API key.",
+  "homepage": "https://keyflight.io/pnr-api",
+  "cloudEndpoint": "https://keyflight.io/mcp",
+  "icon": "https://raw.githubusercontent.com/Keyflight/keyflight-pnr-mcp/main/assets/keyflight-logo-400.png",
+  "tags": [
+    "travel",
+    "pnr",
+    "gds",
+    "amadeus",
+    "sabre",
+    "galileo",
+    "itinerary",
+    "travel-agents"
+  ],
+  "tools": [
+    {
+      "name": "decode_pnr",
+      "description": "Decode a raw PNR into a readable itinerary (text) and structured JSON: passengers, flights, airports, terminals, times, flight duration, airline locators. Each decode with flights counts towards the monthly limit of the KeyFlight subscription, as in the PNR API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The PNR as shown by the GDS (Amadeus, Sabre, Galileo/Apollo, Worldspan), up to 20000 characters."
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "table",
+              "lines2",
+              "lines3",
+              "whatsapp"
+            ],
+            "description": "Layout of the itinerary text. Default: table."
+          },
+          "time_format": {
+            "type": "string",
+            "enum": [
+              "24",
+              "12"
+            ],
+            "description": "24 or 12 hour time. Default: 24."
+          },
+          "date_format": {
+            "type": "string",
+            "enum": [
+              "short",
+              "numeric"
+            ],
+            "description": "\"short\" (18 Jun 2026) or \"numeric\" (18.06.2026)."
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "make_ticket",
+      "description": "Make a PRO e-ticket PDF (Expedia style: PNR, airline logos, class, optional price) from a raw PNR and return a link to the PDF. Passenger names and the PNR code come from the text unless given here. Included in the KeyFlight subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The PNR as shown by the GDS (Amadeus, Sabre, Galileo/Apollo, Worldspan), up to 20000 characters."
+          },
+          "passengers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "description": "Passenger names as on the ticket, e.g. \"SMITH/JOHN MR\". Default: the names in the PNR."
+          },
+          "pnr": {
+            "type": "string",
+            "description": "Booking code printed on the ticket, 5–8 letters and digits. Default: the one in the text, or a random one."
+          },
+          "booking_class": {
+            "type": "string",
+            "enum": [
+              "Economy",
+              "Premium Economy",
+              "Business",
+              "First Class"
+            ],
+            "description": "Default: the cabin of the first flight's booking class."
+          },
+          "price": {
+            "type": "string",
+            "description": "Total price printed on the ticket, e.g. \"1200.50\". Default: no price on the ticket."
+          },
+          "currency": {
+            "type": "string",
+            "maxLength": 10,
+            "description": "Currency next to the price, e.g. \"USD\", \"€\". Default: \"$\"."
+          },
+          "logo": {
+            "type": "string",
+            "enum": [
+              "none",
+              "expedition"
+            ],
+            "description": "Logo in the ticket header. Default: none."
+          },
+          "time_format": {
+            "type": "string",
+            "enum": [
+              "24",
+              "12"
+            ],
+            "description": "24 or 12 hour time. Default: 24."
+          },
+          "date_format": {
+            "type": "string",
+            "enum": [
+              "short",
+              "numeric"
+            ],
+            "description": "\"short\" or \"numeric\"."
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
